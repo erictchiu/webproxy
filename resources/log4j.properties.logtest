@@ -1,0 +1,21 @@
+log4j.rootLogger =ERROR,ProxyLog,AccessLog
+
+# Add remoteAccess category to a log file
+log4j.category.ProxyLog=ProxyLog
+log4j.appender.ProxyLog =org.apache.log4j.RollingFileAppender
+log4j.appender.ProxyLog.File =proxy.log
+log4j.appender.ProxyLog.MaxFileSize =50MB
+log4j.appender.ProxyLog.MaxBackupIndex=1
+log4j.appender.ProxyLog.layout = org.apache.log4j.PatternLayout
+log4j.appender.ProxyLog.layout.ConversionPattern =%d{ISO8601}%p  --  %m%n
+log4j.appender.ProxyLog.Threshold=DEBUG,INFO,ERROR
+log4j.logger.org.apache.commons.httpclient =ERROR
+
+
+# AccessLog is an Appender which will log all remote access actions in the application.
+log4j.category.AccessLog=AccessLog
+log4j.appender.AccessLog=org.apache.log4j.RollingFileAppender
+log4j.appender.AccessLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.AccessLog.layout.ConversionPattern=%d{ISO8601} %m%n
+log4j.appender.AccessLog.File=remoteaccess.log
+log4j.appender.AccessLog.Threshold=INFO,ERROR

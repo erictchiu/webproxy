@@ -1,0 +1,8 @@
+log4j.rootLogger = DEBUG,INFO,ERROR,ROOT_Appender
+log4j.appender.ROOT_Appender = org.apache.log4j.RollingFileAppender
+log4j.appender.ROOT_Appender.File = proxy.log
+log4j.appender.ROOT_Appender.MaxFileSize = 50MB
+log4j.appender.ROOT_Appender.MaxBackupIndex=1
+log4j.appender.ROOT_Appender.layout = org.apache.log4j.PatternLayout
+log4j.appender.ROOT_Appender.layout.ConversionPattern =%d{ISO8601}%p  --  %m%n
+log4j.logger.org.apache.commons.httpclient = INFO,ERROR
